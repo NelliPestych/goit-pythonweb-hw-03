@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Збережені повідомлення</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Всі повідомлення</h1>
+    <a href="/">На головну</a>
+    <ul>
+        {% for timestamp, msg in messages.items() %}
+            <li>
+                <strong>{{ timestamp }}</strong>:
+                {{ msg.username }} — {{ msg.message }}
+            </li>
+        {% else %}
+            <li>Повідомлень поки що немає.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
